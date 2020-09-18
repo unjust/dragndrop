@@ -16,11 +16,9 @@ const DragItem = function(props) {
   }
 
   const onDragStart = () => {
-    // e.dataTransfer.dropEffect = "move";
     setIsDragging(true);
     onDragStartCallback(index);
   };
-
 
   return (
     <div
