@@ -1,13 +1,14 @@
 import React from "react";
 
 
-const JSONView = (props) => {
+const JSONView = ({ text }) => {
   
   return (
     <section>
       <textarea
         className="text-area"
-        value="hola" />
+        onChange={(e) => {}}
+        value={ text } />
     </section>
   );
 }

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
+import DragItem from './DragItem';
 
-
-const DragView = (props) => {
+const DragView = ({ items }) => {
 
   const onDragOver = (e) => {
     e.preventDefault(); // what is this default
@@ -21,7 +21,7 @@ const DragView = (props) => {
       onDragOver={onDragOver}
       onDrop={onDrop}>
   
-      DragView
+      {items.map((item, i) => <DragItem key={`q${i}`} index={i} text={item} />)}
 
     </section>
   );
