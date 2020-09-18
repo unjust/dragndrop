@@ -16,12 +16,10 @@ const JSONView = ({ text, onChangeCallback, lastValidJSON }) => {
 
   return (
     <section>
-      { !isValid &&
-        <div id="valid-message">
-          <div>Please enter valid JSON.</div>
-          <button type="button" onClick={onReset}>Reset to last valid JSON</button>
-        </div>
-      }
+      <div id="valid-message" className={isValid ? "hidden" : ""}>
+        <div>Please enter valid JSON.</div>
+        <button type="button" onClick={onReset}>Reset Text</button>
+      </div>
       <textarea
         className="text-area"
         value={text}

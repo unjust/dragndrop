@@ -3,7 +3,7 @@ import DragView from './DragView';
 import JSONView from './JSONView';
 import { prettifyJSON, isValidJSON } from './jsonUtils';
 
-const initialItems = [ "Hello 1", "Something something 2", "Que tal 3", "WTF 4???", "the end 5" ];
+const initialItems = [ "1 🐠 ", "2 🐟 🐟", "3 🐙 🐙 🐙", "4 🐬 🐬 🐬 🐬 ", "5 🐢 🐢 🐢 🐢 🐢" ];
 
 function App() {
   const [ validItemsData, setValidItemsData ] = useState(initialItems);
