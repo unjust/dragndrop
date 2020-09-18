@@ -1,4 +1,5 @@
 import React, { useCallback } from "react";
+import PropTypes from 'prop-types';
 import { prettifyJSON, isValidJSON } from './jsonUtils';
 
 const JSONView = ({ text, onChangeCallback, lastValidJSON }) => {
@@ -28,5 +29,13 @@ const JSONView = ({ text, onChangeCallback, lastValidJSON }) => {
     </section>
   );
 }
+
+JSONView.propTypes = {
+  text: PropTypes.string,
+  lastValidJSON: PropTypes.array,
+  onChangeCallback: PropTypes.func
+};
+
+
 
 export default JSONView;

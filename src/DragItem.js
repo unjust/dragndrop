@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const DragItem = function(props) {
   const {
@@ -34,5 +35,12 @@ const DragItem = function(props) {
     </div>
   );
 }
+
+DragItem.propTypes = {
+  text: PropTypes.string,
+  index: PropTypes.number,
+  onDragStartCallback: PropTypes.func,
+  onDragEndCallback: PropTypes.func
+};
 
 export default DragItem;

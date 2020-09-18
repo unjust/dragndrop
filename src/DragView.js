@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import DragItem from './DragItem';
+import PropTypes from 'prop-types';
 
 const DragView = ({ items, onDropCallback }) => {
   const [ dragInProcess, setDragInProcess ] = useState(false);
@@ -56,5 +57,10 @@ const DragView = ({ items, onDropCallback }) => {
     </section>
   );
 }
+
+DragView.propTypes = {
+  items: PropTypes.array,
+  onDropCallback: PropTypes.func
+};
 
 export default DragView;
