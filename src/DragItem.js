@@ -1,16 +1,23 @@
 import React, { useState } from 'react';
 
-const DragItem = function({ text, index }) {
+const DragItem = function(props) {
+  const {
+    text,
+    index,
+    onDragStartCallback,
+    onDragEndCallback } = props;
 
   const [ isDragging, setIsDragging ] = useState(false);
 
   const onDragEnd = () => {
     setIsDragging(false);
+    onDragEndCallback();
   }
 
   const onDragStart = () => {
     // e.dataTransfer.dropEffect = "move";
     setIsDragging(true);
+    onDragStartCallback(index);
   };
 
   return (
