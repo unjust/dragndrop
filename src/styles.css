@@ -42,6 +42,10 @@ section {
   margin-bottom: 2rem;
 }
 
+.no-drag-state .drag-item {
+  margin-bottom: .5rem !important;
+}
+
 .text-area {
   flex: 1;
   font-family: 'Roboto', sans-serif;
