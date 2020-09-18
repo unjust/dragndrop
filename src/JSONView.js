@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
-import PropTypes from 'prop-types';
-import { prettifyJSON, isValidJSON } from './jsonUtils';
+import PropTypes from "prop-types";
+import { prettifyJSON, isValidJSON } from "./jsonUtils";
 
 const JSONView = ({ text, onChangeCallback, lastValidJSON }) => {
 

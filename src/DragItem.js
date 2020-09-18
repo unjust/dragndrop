@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 const DragItem = function(props) {
   const {
     text,
     index,
     onDragStartCallback,
-    onDragEndCallback } = props;
+    onDragEndCallback } = props; 
 
   const [ isDragging, setIsDragging ] = useState(false);
   const [ isDraggedOver, setIsDraggedOver ] = useState(false);
@@ -23,7 +23,7 @@ const DragItem = function(props) {
 
   return (
     <div
-      className={`drag-item ${isDragging ? 'drag-item--dragging' : ''} ${isDraggedOver ? 'drag-item--over' : ''}`}
+      className={`drag-item ${isDragging ? "drag-item--dragging" : ""} ${isDraggedOver ? "drag-item--over" : ""}`}
       data-index={index}
       draggable
       onDragStart={onDragStart}

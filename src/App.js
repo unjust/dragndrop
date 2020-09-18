@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import DragView from './DragView';
-import JSONView from './JSONView';
-import { prettifyJSON, isValidJSON } from './jsonUtils';
+import React, { useState } from "react";
+import DragView from "./DragView";
+import JSONView from "./JSONView";
+import { prettifyJSON, isValidJSON } from "./jsonUtils";
 
 const initialItems = [ "1 🐠 ", "2 🐟 🐟", "3 🐙 🐙 🐙", "4 🐬 🐬 🐬 🐬 ", "5 🐢 🐢 🐢 🐢 🐢" ];
 

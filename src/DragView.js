@@ -5,20 +5,18 @@ import PropTypes from 'prop-types';
 const DragView = ({ items, onDropCallback }) => {
   const [ draggedIndex, setDraggedIndex ] = useState();
 
-  const onDragOver = (e) => {
-    e.preventDefault(); // what is this default
-    e.dataTransfer.dropEffect = "move";
-  };
-
   const onDragStart = (i) => {
     setDraggedIndex(i);
-    console.log(i);
   }
 
   const onDragEnd = () => {
     setDraggedIndex();
-    console.log("drag end", draggedIndex);
   }
+
+  const onDragOver = (e) => {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = "move";
+  };
 
   const onDrop = (e) => {
     e.preventDefault();
@@ -36,8 +34,7 @@ const DragView = ({ items, onDropCallback }) => {
   return (
     <section
       id="drag-view"
-      className={ draggedIndex >= 0 ? '' : 'no-drag-state' }
-      onDragLeave={() => {}}
+      className={ `${draggedIndex >= 0 ? "" : "no-drag-state" }`}
       onDragOver={onDragOver}
       onDrop={onDrop}>
   
