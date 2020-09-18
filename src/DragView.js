@@ -9,6 +9,7 @@ const DragView = ({ items, onDropCallback }) => {
     e.preventDefault(); // what is this default
     e.dataTransfer.dropEffect = "move";
     setDragInProcess(true);
+    // setDraggedOverIndex(e.currentTarget)
   };
 
   const onDragStart = (i) => {
@@ -39,7 +40,7 @@ const DragView = ({ items, onDropCallback }) => {
 
   return (
     <section
-      id="dragView"
+      id="drag-view"
       onDragLeave={() => {}}
       onDragOver={onDragOver}
       onDrop={onDrop}>

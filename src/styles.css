@@ -3,40 +3,63 @@ body {
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #457b9d;
 }
 
-#container {
+.flex-container {
   display: flex;
   max-width: 800px;
 }
 
 section {
-  border: 1px solid grey;
   flex-grow: 1;
-  display:flex;
+  display: flex;
   flex-direction: column;
+  position: relative;
 }
 
-#dragView {
-  background-color: slategrey;
+#drag-view {
+  background-color: #1d3557;
+  padding: 2rem 1rem;
 }
 
 .drag-item {
   border-radius: 10px;
   background-color: white;
   padding: 2rem 3rem;
-  margin: .5rem 1rem;
+  margin: .5rem 1rem .5rem;
   font-size: 1.5rem;
+  transition: margin 300ms;
 }
 
 .drag-item--dragging {
-  background-color: skyblue;
-  color: lightblue;
+  background-color: #a8dadc;
+  color: gray;
   opacity: 0.999; /* for edges */
 }
 
+.drag-item--over {
+  margin-bottom: 2rem;
+}
+
 .text-area {
-  margin: 1rem;
   flex: 1;
   font-family: 'Roboto', sans-serif;
+  padding: 2rem;
+}
+
+#valid-message {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  background: #2a9d8f;
+  padding: 1rem 2rem;
+  justify-content: space-between;
+}
+
+button {
+  background: green;
+  color: white;
+  border: none;
+  border-radius: 5px;
 }

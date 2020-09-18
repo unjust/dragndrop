@@ -23,7 +23,7 @@ function App() {
   }
 
   return (
-    <div id="container">
+    <div className="flex-container">
       <DragView items={validItemsData} onDropCallback={onDragViewChange} />
       <JSONView text={jsonViewText} lastValidJSON={validItemsData} onChangeCallback={onJSONViewChange} />
     </div>
