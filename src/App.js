@@ -1,18 +1,9 @@
 import React, { useState } from 'react';
 import DragView from './DragView';
 import JSONView from './JSONView';
+import { prettifyJSON, isValidJSON } from './jsonUtils';
 
 const initialItems = [ "Hello 1", "Something something 2", "Que tal 3", "WTF 4???", "the end 5" ];
-
-const isValidJSON = (json) => {
-  try {
-    JSON.parse(json);
-    return true;
-  } catch (err) {
-    return false;
-  }
-}
-const prettifyJSON = (json) => JSON.stringify(json, null, "\t");
 
 function App() {
   const [ validItemsData, setValidItemsData ] = useState(initialItems);
@@ -34,7 +25,7 @@ function App() {
   return (
     <div id="container">
       <DragView items={validItemsData} onDropCallback={onDragViewChange} />
-      <JSONView text={jsonViewText} onChangeCallback={onJSONViewChange} />
+      <JSONView text={jsonViewText} lastValidJSON={validItemsData} onChangeCallback={onJSONViewChange} />
     </div>
   );
 }
