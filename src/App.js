@@ -11,10 +11,14 @@ function App() {
     setValidItemsData(items);
   }
 
+  const onJSONViewChange = (text) => {
+    setValidItemsData(JSON.parse(text));
+  }
+
   return (
     <div id="container">
-      <DragView items={initialItems} onOrderChange={onDragViewChange} />
-      <JSONView text={JSON.stringify(initialItems)} />
+      <DragView items={validItemsData} onDropCallback={onDragViewChange} />
+      <JSONView text={JSON.stringify(validItemsData)} onChangeCallback={onJSONViewChange} />
     </div>
   );
 }

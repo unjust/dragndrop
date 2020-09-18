@@ -1,13 +1,13 @@
 import React from "react";
 
 
-const JSONView = ({ text }) => {
-  
+const JSONView = ({ text, onChangeCallback }) => {
+
   return (
     <section>
       <textarea
         className="text-area"
-        onChange={(e) => {}}
+        onChange={(e) => { onChangeCallback(e.target.value)}}
         value={ text } />
     </section>
   );

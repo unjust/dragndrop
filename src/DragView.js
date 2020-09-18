@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import DragItem from './DragItem';
 
-const DragView = ({ items, onOrderChange }) => {
+const DragView = ({ items, onDropCallback }) => {
   const [ dragInProcess, setDragInProcess ] = useState(false);
   const [ draggedIndex, setDraggedIndex ] = useState();
 
@@ -34,7 +34,7 @@ const DragView = ({ items, onOrderChange }) => {
       items.push(draggedItem);
     }
 
-    onOrderChange(items);
+    onDropCallback(items);
   };
 
   return (
