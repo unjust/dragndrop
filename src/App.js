@@ -1,10 +1,13 @@
 import React from 'react';
-import './App.css';
+import DragView from './DragView';
+import JSONView from './JSONView';
+
 
 function App() {
   return (
     <div id="container">
-      Hello world!
+      <DragView />
+      <JSONView />
     </div>
   );
 }
