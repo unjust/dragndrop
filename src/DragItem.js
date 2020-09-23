@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
 
 const DragItem = function(props) {
@@ -11,6 +11,9 @@ const DragItem = function(props) {
   const [ isDragging, setIsDragging ] = useState(false);
   const [ isDraggedOver, setIsDraggedOver ] = useState(false);
 
+  const divRef = useRef(null);
+  const spanRef = useRef(null);
+
   const onDragEnd = () => {
     setIsDragging(false);
     onDragEndCallback();
@@ -21,8 +24,33 @@ const DragItem = function(props) {
     onDragStartCallback(index);
   };
 
+  const truncateText = (text) => {
+    // calculate / obtain the width of the cell
+    const cellEl = divRef.current;
+    const textEl = spanRef.current;
+  
+    if (!cellEl || !textEl) {
+      return text;
+    }
+    const cellWidth = parseInt(getComputedStyle(cellEl).width);
+    const textWidth = textEl.getBoundingClientRect().width;
+    const charWidth = textWidth / text.length;
+    let charsToCut = Math.ceil((textWidth - cellWidth) / charWidth);
+    
+    if (!(charsToCut > 0)) {
+      return text;
+    }
+    const insertString = '...';
+    charsToCut += insertString.length;
+    const indexStart = Math.floor((text.length - charsToCut) / 2);
+    const modifiedText = text.split('');
+    modifiedText.splice(indexStart, charsToCut, insertString);
+    return modifiedText.join('');
+  };
+
   return (
     <div
+      ref={divRef}
       className={`drag-item ${isDragging ? "drag-item--dragging" : ""} ${isDraggedOver ? "drag-item--over" : ""}`}
       data-index={index}
       draggable
@@ -31,7 +59,9 @@ const DragItem = function(props) {
       onDragOver={(e) => setIsDraggedOver(true)}
       onDragLeave={(e) => setIsDraggedOver(false)}
     >
-      {text}
+      <span ref={spanRef}>
+        {truncateText(text)}
+      </span>
     </div>
   );
 }

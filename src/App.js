@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import DragView from "./DragView";
 import JSONView from "./JSONView";
 import { prettifyJSON, isValidJSON } from "./jsonUtils";
+import { debounce } from "lodash";
 
 const initialItems = [ "1 🐠 ", "2 🐟 🐟", "3 🐙 🐙 🐙", "4 🐬 🐬 🐬 🐬 ", "5 🐢 🐢 🐢 🐢 🐢" ];
 
@@ -14,12 +15,15 @@ function App() {
     setJSONViewText(prettifyJSON(items));
   }
 
-  const onJSONViewChange = (text) => {
-    setJSONViewText(text);
-    const isValid = isValidJSON(text);
-    if (isValid) {
+  const debouncedSetValidItems = debounce((text) => {
+    if (isValidJSON(text)) {
       setValidItemsData(JSON.parse(text));
     }
+  }, 2000);
+
+  const onJSONViewChange = (text) => {
+    setJSONViewText(text);
+    debouncedSetValidItems(text);
   }
 
   return (
